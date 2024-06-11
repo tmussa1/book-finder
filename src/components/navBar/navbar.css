@@ -1,35 +1,19 @@
-nav.bookList {
+.navbar-brand {
+  background-color: #e3f2fd;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  background-color: lightcoral;
-  padding: 1em 1em;
-  color: white;
-}
-
-.bookList h3 {
-  margin: 0;
-}
-
-.book-list-item {
-  list-style: none;
-  display: flex;
-  gap: 1em;
-  margin: 0;
-  padding: 0;
-}
-
-.book-list-item li {
-  display: inline;
-}
-
-.book-list-item a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.1em;
-  transition: color 0.3s ease;
-}
-
-.book-list-item a:hover {
-  color: #ccc;
+  align-items: center;
+  padding: 0 20px;
+  height: 60px;
+  transition: all 0.3s;
 }
