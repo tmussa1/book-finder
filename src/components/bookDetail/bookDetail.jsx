@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-// Import the fetchBooks function from the book module
-import { fetchBooks } from "../../book";
 import { Container, Button, Form } from "react-bootstrap";
+import axios from "axios";
 
 const BookDetail = () => {
   const { id } = useParams();
@@ -12,8 +11,11 @@ const BookDetail = () => {
   useEffect(() => {
     if (id) {
       const fetchData = async () => {
-        const result = await fetchBooks(`id:${id}`);
-        setBook(result[0]?.volumeInfo || {});
+        const response = await axios.get(
+          `https://www.googleapis.com/books/v1/volumes/${id}`
+        );
+        console.log(response);
+        setBook(response.data.volumeInfo || {});
       };
       fetchData();
     }

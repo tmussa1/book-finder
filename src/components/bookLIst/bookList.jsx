@@ -42,10 +42,13 @@ const BookList = () => {
               <Col>
                 <strong>{book.volumeInfo.title}</strong>
               </Col>
-              <Col className="text-end">
+              <Col
+                className="text-end flex"
+                style={{ display: "flex", gap: "8px" }}
+              >
                 <Button variant="danger" onClick={() => handleDelete(book.id)}>
                   Delete
-                </Button>{" "}
+                </Button>
                 <Button variant="secondary">
                   <Link
                     to={`/edit/${book.id}`}

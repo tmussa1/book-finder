@@ -5,7 +5,6 @@
 
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-//import NavBar from "./components/navBar/navBar";
 import HomePage from "./components/pages/homePage";
 import BookList from "./components/bookLIst/bookList";
 import BookDetail from "./components/bookDetail/bookDetail";
@@ -17,7 +16,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="bookList" element={<BookList />} />
+        <Route path="book-list" element={<BookList />} />
         <Route path="/create" element={<BookDetail />} />
         <Route path="/edit/:id" element={<BookDetail />} />
       </Routes>

@@ -16,7 +16,6 @@ const HeroSection = styled.div`
   background-image: url("https://unsplash.com/photos/white-wooden-shelf-with-books-FKqxZ58bVjU");
   background-size: cover;
   background-position: center;
-  color: white;
 `;
 
 const Button = styled.button`
@@ -73,6 +72,7 @@ const CardText = styled.p`
 
 const HomePage = () => {
   const [books, setBooks] = useState([]);
+  const [showBooks, setShowBooks] = useState(false);
 
   useEffect(() => {
     // Fetching books from Google Books API
@@ -94,27 +94,30 @@ const HomePage = () => {
           Explore a wide range of books on various topics. Find your next read
           and dive into the world of knowledge and imagination.
         </p>
-        <Button>Explore Books</Button>
+        <Button onClick={() => setShowBooks(true)}>Explore Books</Button>
       </HeroSection>
 
-      {/* Books Section */}
-      <h2>Book Collection</h2>
-      <Row>
-        {books.map((book, index) => (
-          <Col key={index}>
-            <HorizontalCard>
-              <CardImg
-                src={book.volumeInfo.imageLinks?.thumbnail}
-                alt={book.volumeInfo.title}
-              />
-              <CardBody>
-                <CardTitle>{book.volumeInfo.title}</CardTitle>
-                <CardText>{book.volumeInfo.authors?.join(", ")}</CardText>
-              </CardBody>
-            </HorizontalCard>
-          </Col>
-        ))}
-      </Row>
+      {showBooks && (
+        <>
+          <h2>Book Collection</h2>
+          <Row>
+            {books.map((book, index) => (
+              <Col key={index}>
+                <HorizontalCard>
+                  <CardImg
+                    src={book.volumeInfo.imageLinks?.thumbnail}
+                    alt={book.volumeInfo.title}
+                  />
+                  <CardBody>
+                    <CardTitle>{book.volumeInfo.title}</CardTitle>
+                    <CardText>{book.volumeInfo.authors?.join(", ")}</CardText>
+                  </CardBody>
+                </HorizontalCard>
+              </Col>
+            ))}
+          </Row>
+        </>
+      )}
     </Container>
   );
 };
